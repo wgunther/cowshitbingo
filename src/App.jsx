@@ -64,8 +64,10 @@ function Grid({ dimension, metadata = [], onSelect = (cord) => true }) {
 
   return (
     <div
-      style={{ "grid-template-columns": `repeat(${dimension[1]}, auto)` }}
-      className={`grid`}
+      style={{ "grid-template-columns": `repeat(${dimension[1]}, auto)`,
+               "transform": "perspective(1000px) rotateX(30deg)",
+      "transform-style": "preserve-3d"}}
+      className={`grid origin-top z-0 transition-all duration-1000`}
     >
       {metadata.map((m) => {
         return (
@@ -169,7 +171,7 @@ function App() {
     <>
       <div
         id="cow"
-        className="text-4xl md:text-5xl absolute -mt-20 ml-30 transition-all duration-[3000ms] -scale-x-100"
+        className="text-4xl md:text-5xl absolute -mt-20 ml-30 transition-all duration-[3000ms] -scale-x-100 z-10"
       >
         {Emoji.Cow}
       </div>
